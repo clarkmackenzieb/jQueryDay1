@@ -1,12 +1,14 @@
 
 $(document).ready(function(){
-
+    $("#error1").hide();
+    $("#error2").hide();
     var user = "Mackenzie";
     var pass = "bbq";
 
     $('#button').click(function(){
         var userName = $("#input");
         var myPass = $("#password");
+        
 
         userName.css("box-shadow", "0px 0px 0px 5px transparent")
         myPass.css("box-shadow", "0px 0px 0px 5px transparent")
@@ -15,22 +17,40 @@ $(document).ready(function(){
 
         if(!userName.val()){
             userName.css("box-shadow", "0px 0px 0px 5px red");
+            
+            
         }
         
         if(!myPass.val()){
             myPass.css("box-shadow", "0px 0px 0px 5px red");
+            $("#error1").show();
+            $("#error1").css("color", "red");
+            $("#error1").css("font-size", "12px")
+            
         }
 
         // $(this).css("display","none");
         if (userName.val() === user && myPass.val() === pass) {
+            $("#error1").hide();
+            $("#error2").hide();
             console.log("hackervoice: IM IN");
             $("#button").css("backgroundColor", randomColor());
             $("#container").css("backgroundColor", randomColor());
             $("#welcome").css("color", randomColor());
             $("body").css("backgroundColor", randomColor());
         }
+        else if( userName.val() && userName.val()){
+            $("#error1").hide();
+            $("#error2").show();
+            $("#error2").css("color", "red");
+            $("#error2").css("font-size", "12px")
+            
+        }
         else{
-            alert("wrong info!")
+            
+            $("#error1").show();
+            $("#error1").css("color", "red");
+            $("#error1").css("font-size", "12px")
         }
         
     //    $(#input)
