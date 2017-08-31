@@ -78,6 +78,9 @@ function randomColor() {
 //   }
 // };
 
+$("input").on("keydown", function(e){
+    $("body").css("backgroundColor", randomColor());
+})
 
 console.log("Ready")
 
